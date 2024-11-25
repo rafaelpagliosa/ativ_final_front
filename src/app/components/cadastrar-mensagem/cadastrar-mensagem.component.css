@@ -1,0 +1,9 @@
+/* Usando ::ng-deep se estiver em um componente */
+::ng-deep .custom-style {
+  margin-bottom: 20px;
+}
+
+/* Ou no arquivo global styles.css */
+.mat-snack-bar-container.custom-style {
+  margin-bottom: 20px;
+}

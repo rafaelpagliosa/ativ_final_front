@@ -64,7 +64,7 @@ export class CadastrarMensagemComponent {
         (novaMensagem) => {
           this.openSnackBar('Mensagem cadastrada com sucesso!');
           this.limparFormulario();
-          this.router.navigate(['/home']);
+
         },
         (erro) => {
           this.openSnackBar(`Erro ao cadastrar mensagem  ${erro}`);
@@ -75,9 +75,8 @@ export class CadastrarMensagemComponent {
       this.mensagemService.atualizarMensagemPorId(this.id, this.mensagem)
         .subscribe({
           next: (response) => {
-            this.router.navigate(['/home']);
             this.openSnackBar(`Mensagem atualizada com sucesso!`);
-            console.log(response);
+
           },
           error: (error) => {
             this.openSnackBar(`Erro ao atualizar a mensagem  ${error}`);
@@ -109,6 +108,9 @@ export class CadastrarMensagemComponent {
       panelClass: ["custom-style"],
     });
   }
+
+
+
 
 
 }
