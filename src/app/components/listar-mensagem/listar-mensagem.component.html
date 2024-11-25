@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Lista de Mensagens</h2>
+
+  <div *ngIf="mensagens.length === 0" class="alert alert-warning">
+    Nenhuma mensagem encontrada.
+  </div>
+
+
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Texto</th>
+        <th scope="col">Remetente</th>
+        <th scope="col">Destinatário</th>
+        <th scope="col">Data de Criação</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mensagem of mensagens">
+        <td>{{ mensagem.id }}</td>
+        <td>{{ mensagem.tipo }}</td>
+        <td>{{ mensagem.texto }}</td>
+        <td>{{ mensagem.remetente }}</td>
+        <td>{{ mensagem.destinatario }}</td>
+        <td>{{ mensagem.dataCriacao | dataFormatada }}</td>
+
+        <td>
+
+          <a [routerLink]="['/novamensagem', mensagem.id]" class="text-primary me-2">
+            <i class="material-icons">edit</i>
+          </a>
+
+          <a href="#" (click)="excluirMensagem(mensagem.id)" class="text-danger">
+            <i class="material-icons">delete</i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

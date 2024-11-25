@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-dark">
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg" style="width: 100%; max-width: 400px; background-color: #343a40; color: white;">
+      <div class="card-body">
+        <h2 class="text-center mb-4">Registrar</h2>
+        <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+
+
+          <div class="mb-3">
+            <label for="nome">Nome</label>
+            <input id="nome" type="text" formControlName="nome" class="form-control bg-dark text-white"
+              [ngClass]="{ 'is-invalid': cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched }" />
+            <div *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched"
+              class="invalid-feedback">
+              Nome é obrigatório.
+            </div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" class="form-control bg-dark text-white"
+              [ngClass]="{ 'is-invalid': cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched }" />
+            <div *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched"
+              class="invalid-feedback">
+              Email inválido.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" formControlName="senha" class="form-control bg-dark text-white"
+              [ngClass]="{ 'is-invalid': cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched }" />
+            <div *ngIf="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched"
+              class="invalid-feedback">
+              Senha é obrigatória.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100" [disabled]="cadastroForm.invalid">Cadastrar</button>
+        </form>
+        <a class="nav-link text-red d-flex align-items-center text-end pt-5" routerLink="/login">
+          <span class="ms-2">Login</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

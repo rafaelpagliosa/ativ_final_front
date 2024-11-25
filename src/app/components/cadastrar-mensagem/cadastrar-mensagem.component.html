@@ -1,0 +1,72 @@
+<div class="container mt-5">
+  <h2>Cadastrar Nova Mensagem</h2>
+  <form (ngSubmit)="cadastrarMensagem()">
+
+    <div class="row">
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="remetente" class="form-label">Remetente</label>
+          <input [(ngModel)]="mensagem.remetente" name="remetente" class="form-control" id="remetente" required>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="supervisor" class="form-label">Supervisor</label>
+          <input [(ngModel)]="mensagem.supervisor" name="supervisor" class="form-control" id="supervisor" required
+            disabled>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="destinatario" class="form-label">Destinatário</label>
+          <input [(ngModel)]="mensagem.destinatario" name="destinatario" class="form-control" id="destinatario"
+            required>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="tipo" class="form-label">Tipo</label>
+          <select [(ngModel)]="mensagem.tipo" name="tipo" class="form-control" id="tipo" required>
+            <option value="alegre">Alegre</option>
+            <option value="normal">Normal</option>
+            <option value="aviso">Aviso</option>
+            <option value="amorosa">Amorosa</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="mb-3">
+          <label for="texto" class="form-label">Texto</label>
+          <textarea [(ngModel)]="mensagem.texto" name="texto" class="form-control" id="texto" rows="6"
+            required></textarea>
+        </div>
+      </div>
+    </div>
+
+    <p>
+
+      * Seja conciente, não nos responsabilizamos pelas mensagem enviadas.
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>
+</div>

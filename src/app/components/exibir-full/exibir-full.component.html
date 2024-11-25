@@ -1,0 +1,37 @@
+
+<div id="mensagensCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div *ngFor="let mensagem of mensagens; let i = index" class="carousel-item" [class.active]="i === indiceAtual">
+      <div class="d-flex justify-content-center">
+        <div class="card" style="width: 18rem;" [ngClass]="{
+          'bg-success': mensagem.tipo === 'alegre',
+          'bg-warning': mensagem.tipo === 'aviso',
+          'bg-primary': mensagem.tipo === 'normal',
+          'bg-danger': mensagem.tipo === 'amorosa'
+        }">
+          <div class="card-body text-white d-flex flex-column justify-content-between" style="height: 100%;">
+            <h5 class="card-title">
+              <i *ngIf="mensagem.tipo === 'alegre'" class="bi bi-sun-fill"></i>
+              <i *ngIf="mensagem.tipo === 'aviso'" class="bi bi-exclamation-circle-fill"></i>
+              <i *ngIf="mensagem.tipo === 'normal'" class="bi bi-chat-square-dots-fill"></i>
+              <i *ngIf="mensagem.tipo === 'amorosa'" class="bi bi-heart-fill"></i>
+            </h5>
+
+            <h1 class="text-end">ID: {{ mensagem.id }}</h1>
+            <h2 class="text-left">De: {{ mensagem.remetente }}</h2>
+            <h2 class="text-left">Para: {{ mensagem.destinatario }}</h2>
+
+            <h4 class="text-center">{{ mensagem.texto }}</h4>
+
+            <footer class="card-text mt-auto">
+              <p class="text-end">Sistema Mensageiro</p>
+            </footer>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

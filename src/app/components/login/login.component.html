@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-dark">
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg" style="width: 100%; max-width: 400px; background-color: #343a40; color: white;">
+      <div class="card-body">
+        <h2 class="text-center mb-4">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input id="email" formControlName="email" type="email" class="form-control bg-dark text-white"
+              placeholder="Digite seu email" />
+            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger small">
+              Email inválido
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="senha" class="form-label">Senha:</label>
+            <input id="senha" formControlName="senha" type="password" class="form-control bg-dark text-white"
+              placeholder="Digite sua senha" />
+            <div *ngIf="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched" class="text-danger small">
+              Senha é obrigatória
+            </div>
+          </div>
+
+          <button type="submit" [disabled]="isSubmitting" class="btn btn-primary w-100">
+            {{ isSubmitting ? 'Carregando...' : 'Entrar' }}
+          </button>
+
+          <div *ngIf="errorMessage" class="text-danger mt-3">
+            {{ errorMessage }}
+          </div>
+        </form>
+
+        <a class="nav-link text-red d-flex align-items-center text-end pt-5" routerLink="/registrar">
+          <span class="ms-2">Registrar-se</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
